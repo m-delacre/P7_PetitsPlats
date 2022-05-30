@@ -4,9 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/style.css"/>
     <title>Les petits plats</title>
 </head>
 <body>
-    
+    <!--header avec logo-->
+    <header>
+        <img src="./assets/images/logo.png" class="header--logo">
+    </header>
+    <main>
+        <!--search bar-->
+        <section class="searchBar">
+            <div class="searchBar--input">
+                <input type="text" id="search" name="search" placeholder="Rechercher une recette">
+            </div>
+            <div class="searchBar--icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </section>
+        <!--Keyword tag-->
+        <section id="filterTag">
+        </section>
+        <section class="sortSection">
+            <!--ingredients-->
+            <div class="sortButton sortButton--blue">
+                <div class="sortButton--input">
+                    <input type="text" id="ingredients" name="ingredients" placeholder="Ingredients">
+                </div>
+                <div class="sortButton--icon">
+                    <i class="fa-solid fa-angle-up"></i>
+                </div>
+            </div>
+            <!--appareils-->
+            <div class="sortButton sortButton--green">
+                <div class="sortButton--input">
+                    <input type="text" id="appareils" name="appareils" placeholder="Appareils">
+                </div>
+                <div class="sortButton--icon">
+                    <i class="fa-solid fa-angle-up"></i>
+                </div>
+            </div>
+            <!--Ustensiles-->
+            <div class="sortButton sortButton--orange">
+                <div class="sortButton--input">
+                    <input type="text" id="ustensiles" name="ustensiles" placeholder="Ustensiles">
+                </div>
+                <div class="sortButton--icon">
+                    <i class="fa-solid fa-angle-up"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

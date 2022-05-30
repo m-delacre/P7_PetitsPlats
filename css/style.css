@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: fit-content;
+}
+
+.header--logo{
+    width: 300px;
+    height: 100px;
+    padding: 30px;
+}
+
+main {
+    width: 100%;
+    height: fit-content;
+}
+
+.searchBar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.searchBar--input{
+    margin-left: 50px;
+    width: 97%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.searchBar--input input{
+    border: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #E7E7E7;
+    padding-left: 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 25px;
+    outline: none;
+}
+
+.searchBar--input input::placeholder{
+    color: #000000;
+}
+
+.searchBar--input input:active{
+    border: 0;
+}
+
+.searchBar--icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3%;
+    height: 100%;
+    background-color: #E7E7E7;
+    margin-right: 50px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.searchBar--icon i{
+    font-size: 30px;
+    padding-right: 20px;
+}
+
+.sortSection{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.sortButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    width: 170px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.sortButton--input{
+    width: 85%;
+    height: 100%;
+}
+
+.sortButton--input input{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding-left: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.sortButton--input input:active{
+    border: 0;
+    text-decoration: none;
+}
+
+.sortButton--input input::placeholder{
+    color: white;
+}
+
+.sortButton--icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.sortButton--icon i{
+    color: white;
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.sortButton--blue{
+    background-color: #3282F7;
+}
+
+.sortButton--blue input{
+    background-color: #3282F7;
+}
+
+.sortButton--green{
+    background-color: #68D9A4;
+}
+
+.sortButton--green input{
+    background-color: #68D9A4;
+}
+
+.sortButton--orange{
+    background-color: #ED6454;
+}
+
+.sortButton--orange input{
+    background-color: #ED6454;
+}
