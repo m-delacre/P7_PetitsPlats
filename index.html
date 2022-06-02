@@ -11,6 +11,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css"/>
     <title>Les petits plats</title>
 </head>
@@ -32,9 +35,10 @@
         <!--Keyword tag-->
         <section id="filterTag">
         </section>
+        <!--Filter Button-->
         <section class="sortSection">
             <!--ingredients-->
-            <div class="sortButton sortButton--blue">
+            <div id="firstBtn" class="sortButton sortButton--blue">
                 <div class="sortButton--input">
                     <input type="text" id="ingredients" name="ingredients" placeholder="Ingredients">
                 </div>
@@ -61,9 +65,17 @@
                 </div>
             </div>
         </section>
+        <!--Recipes-->
+        <section class="recipesSection">
+            <div id="recipeSection" class="allCard">
+
+            </div>
+        </section>
     </main>
     <footer>
-
     </footer>
+    <!--scripts-->
+    <script src="./data/recipes.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
