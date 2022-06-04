@@ -1,4 +1,4 @@
-
+//Create the recipe card
 function createRecipe(recipe){
     let recipeSection = document.getElementById("recipeSection");
 
@@ -25,7 +25,6 @@ function createRecipe(recipe){
     const title = document.createElement('p');
     title.innerText = recipe.name;
     titleSection.appendChild(title);
-    console.log(title.textContent);
     //time part
     const timeSection = document.createElement('div');
     timeSection.setAttribute('class','recipeCard--info--topInfo--time');
@@ -39,7 +38,6 @@ function createRecipe(recipe){
     time.setAttribute('class','timeText');
     time.innerText = `${recipe.time} min`;
     timeSection.appendChild(time);
-    console.log(time.textContent);
     //bot info section
     const botInfo = document.createElement('div');
     botInfo.setAttribute('class','recipeCard--info--botInfo');
@@ -62,12 +60,12 @@ function createRecipe(recipe){
     description.innerText = recipe.description;
     descriptionSection.appendChild(description);
     botInfo.appendChild(descriptionSection);
-    console.log(description.textContent);
     
     //link
     recipeSection.appendChild(article);
 }
 
+//Add the ingredients to the card
 function displayIngredient(ingredient){
     let myIngredient = '';
     if(ingredient.quantity && ingredient.unit){
@@ -80,11 +78,111 @@ function displayIngredient(ingredient){
     return myIngredient;
 }
 
+//Display all the recipes
 function displayRecipes(recipes) {
-    console.log(recipes);
     recipes.forEach((recipe) => {
         createRecipe(recipe);
     });
-};
+}
+
+//Ingredient management
+
+//Get the ingredients from all recipes in an array and remove duplicates
+function getIngredients(){
+    let Listeingredients = [];
+    recipes.forEach((recipe) => {
+        recipe.ingredients.forEach((ingredient) =>{
+            if(Listeingredients.indexOf(ingredient.ingredient) === -1){
+                Listeingredients.push(ingredient.ingredient);
+            }
+        })
+    });
+
+    return Listeingredients;
+}
+
+//Create the list of ingredients under the ingredient button
+function createListeIngredients(){
+    const underSection = document.getElementById('underIngredients');
+    let ingredients = getIngredients();
+    for(let i=0; i<ingredients.length; i++){
+        let newIngredientP = document.createElement('p');
+        console.log(ingredients[i])
+        newIngredientP.innerText = ingredients[i];
+        underSection.appendChild(newIngredientP);
+    }
+}
+
+//device management
+
+////Get the devices from all recipes in an array and remove duplicates
+function getAppareils(){
+    let ListeAppareils = [];
+    recipes.forEach((recipe) => {
+        if(ListeAppareils.indexOf(recipe.appliance) === -1){
+            ListeAppareils.push(recipe.appliance);
+        }
+    });
+
+    return ListeAppareils;
+}
+
+//Create the list of device under the ingredient button
+function createListeAppareils(){
+    const underSection = document.getElementById('underAppareils');
+    let appareils = getAppareils();
+    for(let i=0; i<appareils.length; i++){
+        let newAppareil = document.createElement('p');
+        console.log(appareils[i])
+        newAppareil.innerText = appareils[i];
+        underSection.appendChild(newAppareil);
+    }
+}
+
+//Ustensiles management
+
+//Get the ustensiles from all recipes in an array and remove duplicates
+function getUstensiles(){
+    let ListeUstensiles = [];
+    recipes.forEach((recipe) => {
+        recipe.ustensils.forEach((ustensil) =>{
+            if(ListeUstensiles.indexOf(ustensil) === -1){
+                ListeUstensiles.push(ustensil);
+            }
+        })
+    });
+
+    return ListeUstensiles;
+}
+
+//Create the list of ustensiles under the ustensiles button
+function createListeUstensiles(){
+    const underSection = document.getElementById('underUstensiles');
+    let ustensiles = getUstensiles();
+    for(let i=0; i<ustensiles.length; i++){
+        let newUstensileP = document.createElement('p');
+        console.log(ustensiles[i])
+        newUstensileP.innerText = ustensiles[i];
+        underSection.appendChild(newUstensileP);
+    }
+}
+
+//When clicking on the ingredient input > display the list of ingredients
+document.getElementById('ingredients').addEventListener('click',()=>{
+    createListeIngredients()
+    document.getElementById('underIngredients').style.display = "flex";
+})
+
+//When clicking on the appareils input > display the list of device
+document.getElementById('appareils').addEventListener('click',()=>{
+    createListeAppareils()
+    document.getElementById('underAppareils').style.display = "flex";
+})
+
+//When clicking on the ustensiles input > display the list of ustensiles
+document.getElementById('ustensiles').addEventListener('click',()=>{
+    createListeUstensiles()
+    document.getElementById('underUstensiles').style.display = "flex";
+})
 
 displayRecipes(recipes);

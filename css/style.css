@@ -1,292 +1,356 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: fit-content;
 }
 
-.header--logo{
-    width: 300px;
-    height: 100px;
-    padding: 30px;
+.header--logo {
+  width: 300px;
+  height: 100px;
+  padding: 30px;
 }
 
 main {
-    width: 100vw;
-    height: fit-content;
+  width: 100vw;
+  height: fit-content;
 }
 
 /*>>>>SEARCHBAR<<<<*/
-.searchBar{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
+.searchBar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
 }
 
-.searchBar--input{
-    margin-left: 10%;
-    width: 97%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    background-color: #E7E7E7;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+.searchBar--input {
+  margin-left: 10%;
+  width: 97%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #E7E7E7;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
-.searchBar--input input{
-    border: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #E7E7E7;
-    padding-left: 20px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    font-size: 25px;
-    outline: none;
+.searchBar--input input {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #E7E7E7;
+  padding-left: 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 25px;
+  outline: none;
 }
 
-.searchBar--input input::placeholder{
-    color: #000000;
+.searchBar--input input::placeholder {
+  color: #000000;
 }
 
-.searchBar--input input:active{
-    border: 0;
+.searchBar--input input:active {
+  border: 0;
 }
 
-.searchBar--icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3%;
-    height: 100%;
-    background-color: #E7E7E7;
-    margin-right: 10%;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+.searchBar--icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3%;
+  height: 100%;
+  background-color: #E7E7E7;
+  margin-right: 7%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
-.searchBar--icon i{
-    font-size: 30px;
-    padding-right: 25px;
+.searchBar--icon i {
+  font-size: 30px;
+  padding-right: 25px;
 }
 
 /*>>>>SORT TAG<<<<*/
-
 /*>>>>SORT BUTTON<<<<*/
-.sortSection{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+.sortSection {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
-#firstBtn{
-    margin-left: 10%;
+#firstBtn {
+  margin-left: 10%;
 }
 
-.sortButton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-    width: 170px;
-    height: 50px;
-    border-radius: 10px;
+.sortButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
 }
 
-.sortButton--input{
-    width: 85%;
-    height: 100%;
+.sortButton--input {
+  border: 1px solid red;
+  width: 80%;
+  height: 100%;
 }
 
-.sortButton--input input{
-    width: 100%;
-    height: 100%;
-    border: 0;
-    padding-left: 15px;
-    font-size: 20px;
-    border-radius: 10px;
-    outline: none;
+.sortButton--input input {
+  border: 1px solid green;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding-left: 15px;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
-.sortButton--input input:focus{ 
-    width: 300px;
+.sortButton--input input:focus .underIngredients {
+  display: flex;
+}
+.sortButton--input input:focus input {
+  width: 800px;
 }
 
-.sortButton--input input::placeholder{
-    color: white;
+.sortButton--input input::placeholder {
+  color: white;
 }
 
-.sortButton--icon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15%;
-    height: 100%;
-    border-radius: 10px;
+.sortButton--icon {
+  border: 1px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  margin: 15px;
 }
 
-.sortButton--icon i{
-    color: white;
-    font-size: 20px;
-    padding-right: 10px;
-    margin-left: 10px;
+.sortButton--icon i {
+  color: white;
+  font-size: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
-.sortButton--blue{
-    background-color: #3282F7;
+.sortButton--blue {
+  background-color: #3282F7;
 }
 
-.sortButton--blue input{
-    background-color: #3282F7;
+.sortButton--blue input {
+  background-color: #3282F7;
 }
 
-.sortButton--green{
-    background-color: #68D9A4;
+.sortButton--green {
+  background-color: #68D9A4;
 }
 
-.sortButton--green input{
-    background-color: #68D9A4;
+.sortButton--green input {
+  background-color: #68D9A4;
 }
 
-.sortButton--orange{
-    background-color: #ED6454;
+.sortButton--orange {
+  background-color: #ED6454;
 }
 
-.sortButton--orange input{
-    background-color: #ED6454;
+.sortButton--orange input {
+  background-color: #ED6454;
+}
+
+.underIngredients {
+  width: 400px;
+  max-height: 1000px;
+  position: absolute;
+  top: 272px;
+  left: 192px;
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #3282F7;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.underIngredients p {
+  color: white;
+  font-size: 15px;
+  margin: 5px;
+  margin-right: 40px;
+}
+
+.underAppareils {
+  width: 600px;
+  height: fit-content;
+  position: absolute;
+  top: 272px;
+  left: 412px;
+  display: none;
+  flex-direction: column;
+  background-color: #68D9A4;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.underAppareils p {
+  color: white;
+  font-size: 15px;
+  margin: 5px;
+  margin-right: 40px;
+}
+
+.underUstensiles {
+  width: 400px;
+  height: fit-content;
+  position: absolute;
+  top: 272px;
+  left: 632px;
+  display: none;
+  flex-direction: column;
+  background-color: #ED6454;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.underUstensiles p {
+  color: white;
+  font-size: 15px;
+  margin: 5px;
+  margin-right: 40px;
 }
 
 /*>>>>RECIPES<<<<*/
-.recipesSection{
-    margin-top: 20px;
-    width: 100%;
-    height: fit-content;
-    display: flex;
+.recipesSection {
+  margin-top: 20px;
+  width: 100%;
+  height: fit-content;
+  display: flex;
 }
 
-.allCard{
-    margin-left: 10%;
-    margin-right: 4.5%;
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-wrap: wrap;
+.allCard {
+  margin-left: 10%;
+  margin-right: 5%;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.recipeCard{
-    width: 30%;
-    height: 400px;
-    background-color: #E7E7E7;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
-    margin-right: 40px;
+.recipeCard {
+  height: 400px;
+  background-color: #E7E7E7;
+  border-radius: 15px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  margin-right: 40px;
 }
 
-.recipeCard--photo{
-    width: 100%;
-    height: 50%;
-    background-color: #C7BEBE;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+.recipeCard--photo {
+  width: 100%;
+  height: 50%;
+  background-color: #C7BEBE;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-.recipeCard--info{
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
+.recipeCard--info {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
-.recipeCard--info--topInfo{
-    display: flex;
-    width: 100%;
-    height: 30%;
-    margin-bottom: 10px;
+.recipeCard--info--topInfo {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  margin-bottom: 10px;
 }
 
-.recipeCard--info--topInfo--title{
-    width: 80%;
-    height: 100%;
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
+.recipeCard--info--topInfo--title {
+  width: 80%;
+  height: 100%;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
 }
 
-.recipeCard--info--topInfo--title p{
-    font-size: 20px;
+.recipeCard--info--topInfo--title p {
+  font-size: 20px;
 }
 
-.recipeCard--info--topInfo--time{
-    width: 20%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-right: 10px;
+.recipeCard--info--topInfo--time {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
 }
 
-.timeIcon{
-    /*clock icon*/
-    font-size:20px;
-    font-weight: bold;
+.timeIcon {
+  /*clock icon*/
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.timeText{
-    font-weight: bold;
-    font-size: 18px;
-    margin-left: 10px;
+.timeText {
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 10px;
 }
 
-.recipeCard--info--botInfo{
-    width: 100%;
-    height: 70%;
-    display: flex
+.recipeCard--info--botInfo {
+  width: 500px;
+  height: 70%;
+  display: flex;
 }
 
-.recipeCard--info--botInfo--ingredients{
-    width: 50%;
-    height: 100%;
-    padding-left: 10px;
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
+.recipeCard--info--botInfo--ingredients {
+  width: 50%;
+  height: 100%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
 }
 
-.recipeCard--info--botInfo--ingredients p{
-    font-size: 14px;
+.recipeCard--info--botInfo--ingredients p {
+  font-size: 14px;
 }
 
-.recipeCard--info--botInfo--description{
-    width: 50%;
-    height: 100%;
-    padding-right: 20px;
-    font-size: 10px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    margin-bottom: 20px;
+.recipeCard--info--botInfo--description {
+  width: 50%;
+  height: 100%;
+  padding-right: 20px;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
-.recipeCard--info--botInfo--description p{
-    font-size: 13px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: normal;
+.recipeCard--info--botInfo--description p {
+  font-size: 13px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
 }
 
-em{
-    font-weight: bold;
-    font-style: normal;
+em {
+  font-weight: bold;
+  font-style: normal;
 }
+
+/*# sourceMappingURL=style.css.map */
