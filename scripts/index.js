@@ -168,21 +168,35 @@ function createListeUstensiles(){
 }
 
 //When clicking on the ingredient input > display the list of ingredients
-document.getElementById('ingredients').addEventListener('click',()=>{
+document.getElementById('ingredients').addEventListener('focusin',()=>{
     createListeIngredients()
     document.getElementById('underIngredients').style.display = "flex";
 })
 
+document.getElementById('ingredients').addEventListener('focusout',()=>{
+    //clear la liste
+    document.getElementById('underIngredients').style.display = "none";
+})
+
 //When clicking on the appareils input > display the list of device
-document.getElementById('appareils').addEventListener('click',()=>{
+document.getElementById('appareils').addEventListener('focusin',()=>{
     createListeAppareils()
     document.getElementById('underAppareils').style.display = "flex";
 })
 
+document.getElementById('appareils').addEventListener('focusout',()=>{
+    document.getElementById('underAppareils').style.display = "none";
+})
+
 //When clicking on the ustensiles input > display the list of ustensiles
-document.getElementById('ustensiles').addEventListener('click',()=>{
+document.getElementById('ustensiles').addEventListener('focusin',()=>{
     createListeUstensiles()
     document.getElementById('underUstensiles').style.display = "flex";
 })
 
+document.getElementById('ustensiles').addEventListener('focusout',()=>{
+    document.getElementById('underUstensiles').style.display = "none";
+})
+
+console.log(getIngredients());
 displayRecipes(recipes);
