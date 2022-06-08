@@ -107,10 +107,14 @@ function createListeIngredients(){
     let ingredients = getIngredients();
     for(let i=0; i<ingredients.length; i++){
         let newIngredientP = document.createElement('p');
-        console.log(ingredients[i])
         newIngredientP.innerText = ingredients[i];
         underSection.appendChild(newIngredientP);
     }
+}
+
+function clearIngredients(){
+    const underSection = document.getElementById('underIngredients');
+    underSection.innerHTML = '';
 }
 
 //device management
@@ -133,10 +137,14 @@ function createListeAppareils(){
     let appareils = getAppareils();
     for(let i=0; i<appareils.length; i++){
         let newAppareil = document.createElement('p');
-        console.log(appareils[i])
         newAppareil.innerText = appareils[i];
         underSection.appendChild(newAppareil);
     }
+}
+
+function clearAppareils(){
+    const underSection = document.getElementById('underAppareils');
+    underSection.innerHTML = '';
 }
 
 //Ustensiles management
@@ -167,36 +175,50 @@ function createListeUstensiles(){
     }
 }
 
+function clearUstensiles(){
+    const underSection = document.getElementById('underUstensiles');
+    underSection.innerHTML = '';
+}
+
 //When clicking on the ingredient input > display the list of ingredients
 document.getElementById('ingredients').addEventListener('focusin',()=>{
-    createListeIngredients()
+    createListeIngredients();
     document.getElementById('underIngredients').style.display = "flex";
+    document.getElementById('firstBtn').style.width = "720px";
 })
 
 document.getElementById('ingredients').addEventListener('focusout',()=>{
-    //clear la liste
     document.getElementById('underIngredients').style.display = "none";
+    clearIngredients();
+    document.getElementById('firstBtn').style.width = "200px";
 })
+
 
 //When clicking on the appareils input > display the list of device
 document.getElementById('appareils').addEventListener('focusin',()=>{
-    createListeAppareils()
+    createListeAppareils();
     document.getElementById('underAppareils').style.display = "flex";
+    document.getElementById('secondtBtn').style.width = "500px";
 })
 
 document.getElementById('appareils').addEventListener('focusout',()=>{
     document.getElementById('underAppareils').style.display = "none";
+    clearAppareils();
+    document.getElementById('secondtBtn').style.width = "200px";
 })
 
 //When clicking on the ustensiles input > display the list of ustensiles
 document.getElementById('ustensiles').addEventListener('focusin',()=>{
-    createListeUstensiles()
+    createListeUstensiles();
     document.getElementById('underUstensiles').style.display = "flex";
+    document.getElementById('thirdBtn').style.width = "500px";
 })
 
 document.getElementById('ustensiles').addEventListener('focusout',()=>{
     document.getElementById('underUstensiles').style.display = "none";
+    clearUstensiles();
+    document.getElementById('thirdBtn').style.width = "200px";
 })
 
-console.log(getIngredients());
+
 displayRecipes(recipes);
