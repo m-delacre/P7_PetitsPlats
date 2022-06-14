@@ -78,11 +78,27 @@ function displayIngredient(ingredient){
     return myIngredient;
 }
 
+//Clear the recipe section
+function deleteRecipes(){
+    let recipeSection = document.getElementById("recipeSection");
+    recipeSection.innerHTML = '';
+}
+
 //Display all the recipes
 function displayRecipes(recipes) {
+    deleteRecipes();
     recipes.forEach((recipe) => {
         createRecipe(recipe);
     });
+}
+
+//Show message if no recipe found
+function displayNotFound(){
+    deleteRecipes();
+    let recipeSection = document.getElementById("recipeSection");
+    let notFound = document.createElement('p');
+    notFound.innerText = 'Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.';
+    recipeSection.appendChild(notFound);
 }
 
 //Ingredient management
@@ -108,6 +124,30 @@ function createListeIngredients(){
     for(let i=0; i<ingredients.length; i++){
         let newIngredientP = document.createElement('p');
         newIngredientP.innerText = ingredients[i];
+        newIngredientP.addEventListener('click', ()=>{
+            //creation of the tag
+            const tagSection = document.getElementById('filterTag');
+            let newTag = document.createElement('div');
+            newTag.setAttribute('class','tagCard tagCard--Ingredients');
+            tagSection.appendChild(newTag);
+            let tagName = document.createElement('p');
+            tagName.innerText = ingredients[i];
+            let tagIcon = document.createElement('i');
+            tagIcon.setAttribute('class','fa-regular fa-circle-xmark');
+            newTag.appendChild(tagName);
+            newTag.appendChild(tagIcon);
+            //research with the tag selected
+            research(tagName.innerText.toLowerCase());
+            document.getElementById('underIngredients').style.display = "none";
+            clearIngredients();
+            underSectionPos();
+            document.getElementById('firstBtn').style.width = "200px";
+            tagIcon.addEventListener('click', ()=>{
+                tagIcon.parentElement.remove();
+                displayRecipes(recipes);
+                underSectionPos();
+            })
+        });
         underSection.appendChild(newIngredientP);
     }
 }
@@ -139,6 +179,21 @@ function createListeAppareils(){
         let newAppareil = document.createElement('p');
         newAppareil.innerText = appareils[i];
         underSection.appendChild(newAppareil);
+        newAppareil.addEventListener('click', ()=>{
+            const tagSection = document.getElementById('filterTag');
+            let newTag = document.createElement('div');
+            newTag.setAttribute('class','tagCard tagCard--Appareils');
+            tagSection.appendChild(newTag);
+            let tagName = document.createElement('p');
+            tagName.innerText = appareils[i];
+            let tagIcon = document.createElement('i');
+            tagIcon.setAttribute('class','fa-regular fa-circle-xmark');
+            newTag.appendChild(tagName);
+            newTag.appendChild(tagIcon);
+            tagIcon.addEventListener('click', ()=>{
+                console.log('delete');
+            })
+        });
     }
 }
 
@@ -169,7 +224,6 @@ function createListeUstensiles(){
     let ustensiles = getUstensiles();
     for(let i=0; i<ustensiles.length; i++){
         let newUstensileP = document.createElement('p');
-        console.log(ustensiles[i])
         newUstensileP.innerText = ustensiles[i];
         underSection.appendChild(newUstensileP);
     }
@@ -182,21 +236,24 @@ function clearUstensiles(){
 
 //When clicking on the ingredient input > display the list of ingredients
 document.getElementById('ingredients').addEventListener('focusin',()=>{
+    clearIngredients();
     createListeIngredients();
     document.getElementById('underIngredients').style.display = "flex";
     document.getElementById('firstBtn').style.width = "720px";
+    underSectionPos();
 })
 
-document.getElementById('ingredients').addEventListener('focusout',()=>{
+/*document.getElementById('ingredients').addEventListener('focusout',()=>{
     document.getElementById('underIngredients').style.display = "none";
-    clearIngredients();
+    underSectionPos();
     document.getElementById('firstBtn').style.width = "200px";
-})
+})*/
 
 
 //When clicking on the appareils input > display the list of device
 document.getElementById('appareils').addEventListener('focusin',()=>{
     createListeAppareils();
+    underSectionPos();
     document.getElementById('underAppareils').style.display = "flex";
     document.getElementById('secondtBtn').style.width = "500px";
 })
@@ -204,12 +261,14 @@ document.getElementById('appareils').addEventListener('focusin',()=>{
 document.getElementById('appareils').addEventListener('focusout',()=>{
     document.getElementById('underAppareils').style.display = "none";
     clearAppareils();
+    underSectionPos();
     document.getElementById('secondtBtn').style.width = "200px";
 })
 
 //When clicking on the ustensiles input > display the list of ustensiles
 document.getElementById('ustensiles').addEventListener('focusin',()=>{
     createListeUstensiles();
+    underSectionPos();
     document.getElementById('underUstensiles').style.display = "flex";
     document.getElementById('thirdBtn').style.width = "500px";
 })
@@ -217,8 +276,23 @@ document.getElementById('ustensiles').addEventListener('focusin',()=>{
 document.getElementById('ustensiles').addEventListener('focusout',()=>{
     document.getElementById('underUstensiles').style.display = "none";
     clearUstensiles();
+    underSectionPos();
     document.getElementById('thirdBtn').style.width = "200px";
 })
 
+//Modifity underSection position if has active tags
+function underSectionPos(){
+    let filterTag = document.getElementById('filterTag');
+    let filterTagCount = filterTag.childElementCount;
+    if(filterTagCount > 0){
+        document.getElementById('underIngredients').style.top = "322px"
+        document.getElementById('underAppareils').style.top = "322px"
+        document.getElementById('underUstensiles').style.top = "322px"
+    } else if(filterTagCount == 0){
+        document.getElementById('underIngredients').style.top = "272px"
+        document.getElementById('underAppareils').style.top = "272px"
+        document.getElementById('underUstensiles').style.top = "272px"
+    }
+}
 
 displayRecipes(recipes);
