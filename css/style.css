@@ -47,7 +47,7 @@ main {
   width: 100%;
   height: 100%;
   background-color: #E7E7E7;
-  padding-left: 20px;
+  margin-left: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   font-size: 25px;
@@ -357,6 +357,7 @@ main {
   /*clock icon*/
   font-size: 20px;
   font-weight: bold;
+  font-family: "FontAwesome";
 }
 
 .timeText {
@@ -385,7 +386,7 @@ main {
 }
 
 .recipeCard--info--botInfo--description {
-  width: 250px;
+  width: 50%;
   height: 85%;
   padding-right: 20px;
   font-size: 10px;

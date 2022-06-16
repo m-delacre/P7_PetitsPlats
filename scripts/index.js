@@ -124,8 +124,8 @@ function createListeIngredients(){
     for(let i=0; i<ingredients.length; i++){
         let newIngredientP = document.createElement('p');
         newIngredientP.innerText = ingredients[i];
+        //creation of the tag
         newIngredientP.addEventListener('click', ()=>{
-            //creation of the tag
             const tagSection = document.getElementById('filterTag');
             let newTag = document.createElement('div');
             newTag.setAttribute('class','tagCard tagCard--Ingredients');
@@ -137,14 +137,17 @@ function createListeIngredients(){
             newTag.appendChild(tagName);
             newTag.appendChild(tagIcon);
             //research with the tag selected
-            research(tagName.innerText.toLowerCase());
+            filterIngredient.push(tagName.innerText);
+            globalResearch();
             document.getElementById('underIngredients').style.display = "none";
             clearIngredients();
             underSectionPos();
             document.getElementById('firstBtn').style.width = "200px";
             tagIcon.addEventListener('click', ()=>{
+                filterIngredient.splice(filterIngredient.indexOf(tagName.innerText),1);
                 tagIcon.parentElement.remove();
-                displayRecipes(recipes);
+                foundRecipe = [];
+                globalResearch();
                 underSectionPos();
             })
         });
@@ -179,7 +182,8 @@ function createListeAppareils(){
         let newAppareil = document.createElement('p');
         newAppareil.innerText = appareils[i];
         underSection.appendChild(newAppareil);
-        newAppareil.addEventListener('click', ()=>{
+         //creation of the tag
+         newAppareil.addEventListener('click', ()=>{
             const tagSection = document.getElementById('filterTag');
             let newTag = document.createElement('div');
             newTag.setAttribute('class','tagCard tagCard--Appareils');
@@ -190,8 +194,19 @@ function createListeAppareils(){
             tagIcon.setAttribute('class','fa-regular fa-circle-xmark');
             newTag.appendChild(tagName);
             newTag.appendChild(tagIcon);
+            //research with the tag selected
+            filterAppareils.push(tagName.innerText);
+            globalResearch();
+            document.getElementById('underAppareils').style.display = "none";
+            clearAppareils();
+            underSectionPos();
+            document.getElementById('secondtBtn').style.width = "200px";
             tagIcon.addEventListener('click', ()=>{
-                console.log('delete');
+                filterAppareils.splice(filterAppareils.indexOf(tagName.innerText),1);
+                tagIcon.parentElement.remove();
+                foundRecipe = [];
+                globalResearch();
+                underSectionPos();
             })
         });
     }
@@ -225,6 +240,33 @@ function createListeUstensiles(){
     for(let i=0; i<ustensiles.length; i++){
         let newUstensileP = document.createElement('p');
         newUstensileP.innerText = ustensiles[i];
+        //creation of the tag
+        newUstensileP.addEventListener('click', ()=>{
+            const tagSection = document.getElementById('filterTag');
+            let newTag = document.createElement('div');
+            newTag.setAttribute('class','tagCard tagCard--Ustensils');
+            tagSection.appendChild(newTag);
+            let tagName = document.createElement('p');
+            tagName.innerText = ustensiles[i];
+            let tagIcon = document.createElement('i');
+            tagIcon.setAttribute('class','fa-regular fa-circle-xmark');
+            newTag.appendChild(tagName);
+            newTag.appendChild(tagIcon);
+            //research with the tag selected
+            filterUstensils.push(tagName.innerText);
+            globalResearch();
+            document.getElementById('underUstensiles').style.display = "none";
+            clearIngredients();
+            underSectionPos();
+            document.getElementById('thirdBtn').style.width = "200px";
+            tagIcon.addEventListener('click', ()=>{
+                filterUstensils.splice(filterUstensils.indexOf(tagName.innerText),1);
+                tagIcon.parentElement.remove();
+                foundRecipe = [];
+                globalResearch();
+                underSectionPos();
+            })
+        });
         underSection.appendChild(newUstensileP);
     }
 }
@@ -234,51 +276,72 @@ function clearUstensiles(){
     underSection.innerHTML = '';
 }
 
-//When clicking on the ingredient input > display the list of ingredients
-document.getElementById('ingredients').addEventListener('focusin',()=>{
-    clearIngredients();
-    createListeIngredients();
-    document.getElementById('underIngredients').style.display = "flex";
-    document.getElementById('firstBtn').style.width = "720px";
-    underSectionPos();
-})
-
-/*document.getElementById('ingredients').addEventListener('focusout',()=>{
-    document.getElementById('underIngredients').style.display = "none";
-    underSectionPos();
-    document.getElementById('firstBtn').style.width = "200px";
-})*/
+//filter display
+let section = document.getElementById('sortSection');
+let focuses = section.getElementsByTagName('input');
 
 
-//When clicking on the appareils input > display the list of device
-document.getElementById('appareils').addEventListener('focusin',()=>{
-    createListeAppareils();
-    underSectionPos();
-    document.getElementById('underAppareils').style.display = "flex";
-    document.getElementById('secondtBtn').style.width = "500px";
-})
+for(let focus of focuses){
+        focus.addEventListener('focusout',()=> {
+            setTimeout(() => {
+                switch(focus.name.toLowerCase()){
+                    case "ingredients":
+                        document.getElementById('underIngredients').style.display = "none";
+                        clearIngredients();
+                        underSectionPos();
+                        document.getElementById('firstBtn').style.width = "200px";
+                    break;
+                    case "appareils":
+                        document.getElementById('underAppareils').style.display = "none";
+                        clearAppareils();
+                        underSectionPos();
+                        document.getElementById('secondtBtn').style.width = "200px";
+                    break;
+                    case "ustensiles": 
+                        document.getElementById('underUstensiles').style.display = "none";
+                        clearUstensiles();
+                        underSectionPos();
+                        document.getElementById('thirdBtn').style.width = "200px";
+                    break;           
+                }
+                //  listeDesElements.style.height = "inherit";
+                // listeDesElements.style.background = "transparent";
+                focus.value = "";
+                
+            }, 100);
+        });
 
-document.getElementById('appareils').addEventListener('focusout',()=>{
-    document.getElementById('underAppareils').style.display = "none";
-    clearAppareils();
-    underSectionPos();
-    document.getElementById('secondtBtn').style.width = "200px";
-})
+        focus.addEventListener('focusin', function(){
+           setTimeout(()=>{
+            switch(focus.name.toLowerCase()){
+                case "ingredients":
+                    clearIngredients();
+                    createListeIngredients();
+                    document.getElementById('underIngredients').style.display = "flex";
+                    document.getElementById('firstBtn').style.width = "720px";
+                    underSectionPos();
+                break;
+                case "appareils":
+                    clearAppareils();
+                    createListeAppareils();
+                    document.getElementById('underAppareils').style.display = "flex";
+                    document.getElementById('secondtBtn').style.width = "500px";
+                    underSectionPos();
+                break;
+                case "ustensiles": 
+                    clearUstensiles();
+                    createListeUstensiles();
+                    document.getElementById('underUstensiles').style.display = "flex";
+                    document.getElementById('thirdBtn').style.width = "500px";
+                    underSectionPos();
+                break;            
 
-//When clicking on the ustensiles input > display the list of ustensiles
-document.getElementById('ustensiles').addEventListener('focusin',()=>{
-    createListeUstensiles();
-    underSectionPos();
-    document.getElementById('underUstensiles').style.display = "flex";
-    document.getElementById('thirdBtn').style.width = "500px";
-})
+            }
+           }, 100)
+           
 
-document.getElementById('ustensiles').addEventListener('focusout',()=>{
-    document.getElementById('underUstensiles').style.display = "none";
-    clearUstensiles();
-    underSectionPos();
-    document.getElementById('thirdBtn').style.width = "200px";
-})
+        })
+}
 
 //Modifity underSection position if has active tags
 function underSectionPos(){
