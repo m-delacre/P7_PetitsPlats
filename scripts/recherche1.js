@@ -36,7 +36,7 @@ function research (tag){
             })
 
             /////////////////////////////
-            //not in nominal scenario
+            //not in principal research
             /////////////////////////////
 
             //check if apliance matches
