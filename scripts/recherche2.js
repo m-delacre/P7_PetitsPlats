@@ -17,43 +17,50 @@ function research (tag){
     //define from wich array we will research
     defineFrom();
     let fromArray = from;
+    let i = 0;
+    let y = 0;
+    foundRecipe = [];
     if(tag.length >= 3){
-        foundRecipe = [];
-        fromArray.forEach(recipe =>{
-            //check if the name matches
-            if(recipe.name.toLowerCase().includes(tag.toLowerCase()) || recipe.description.toLowerCase().includes(tag.toLowerCase())){
-                if(foundRecipe.indexOf(recipe) === -1){
-                    foundRecipe.push(recipe);
+        while(i < fromArray.length){
+            //check name and description
+            if(fromArray[i].name.toLowerCase().includes(tag.toLowerCase()) || fromArray[i].description.toLowerCase().includes(tag.toLowerCase())){
+              if(foundRecipe.indexOf(fromArray[i]) === -1){
+                foundRecipe.push(fromArray[i])
+              }
+            };
+            //check every ingredients
+            while(y < fromArray[i].ingredients.length){
+              if(fromArray[i].ingredients[y].ingredient.toLowerCase().includes(tag.toLowerCase())){
+                if(foundRecipe.indexOf(fromArray[i]) === -1){
+                    foundRecipe.push(fromArray[i])
                 }
-            }
-            //check if an ingredient matches
-            recipe.ingredients.forEach((ingredient) =>{
-                if(ingredient.ingredient.toLowerCase().includes(tag.toLowerCase())){
-                    if(foundRecipe.indexOf(recipe) === -1){
-                        foundRecipe.push(recipe);
-                    }
-                }
-            })
+              }
+              y++;
+            };
 
             /////////////////////////////
             //not in principal research
             /////////////////////////////
 
             //check if apliance matches
-            if(recipe.appliance.toLowerCase() == tag.toLowerCase()){
-                if(foundRecipe.indexOf(recipe) === -1){
-                    foundRecipe.push(recipe);
+            if(fromArray[i].appliance.toLowerCase() == tag.toLowerCase()){
+                if(foundRecipe.indexOf(fromArray[i]) === -1){
+                    foundRecipe.push(fromArray[i]);
                 }
-            }
+            };
             //check if ustensiles matches
-            recipe.ustensils.forEach((ustensil) =>{
+            fromArray[i].ustensils.forEach((ustensil) =>{
                 if(ustensil.toLowerCase().includes(tag.toLowerCase())){
-                    if(foundRecipe.indexOf(recipe) === -1){
-                        foundRecipe.push(recipe);
+                    if(foundRecipe.indexOf(fromArray[i]) === -1){
+                        foundRecipe.push(fromArray[i]);
                     }
                 }
-            })
-        });
+            });
+
+            //next recipe
+            i++;
+        };
+        console.log(foundRecipe);
     }
     
     //Show found recipes
