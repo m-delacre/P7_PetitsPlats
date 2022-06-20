@@ -68,6 +68,9 @@ function research (tag){
 }
 
 function globalResearch(){
+    //principal research 
+    research(searchInput.value.toLowerCase());
+    
     //check every ingredients tag
     let tagIngredients = filterIngredient;
     tagIngredients.forEach((tag)=>{
