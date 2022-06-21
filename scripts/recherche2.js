@@ -60,7 +60,6 @@ function research (tag){
             //next recipe
             i++;
         };
-        console.log(foundRecipe);
     }
     
     //Show found recipes
