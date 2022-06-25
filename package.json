@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/m-delacre/P7_PetitsPlats/issues"
   },
-  "homepage": "https://github.com/m-delacre/P7_PetitsPlats#readme"
+  "homepage": "https://github.com/m-delacre/P7_PetitsPlats#readme",
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
 }
