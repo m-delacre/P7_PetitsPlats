@@ -10,5 +10,8 @@
         "ecmaVersion": 13
     },
     "rules": {
+        "max-len": "off",
+        "no-undef": "off",
+        "no-loop-func": "off"
     }
 }
