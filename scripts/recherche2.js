@@ -77,21 +77,26 @@ function research(tag) {
 }
 
 function globalResearch() {
+  // principal research
+  research(searchInput.value.toLowerCase());
+
   // check every ingredients tag
   const tagIngredients = filterIngredient;
-  tagIngredients.forEach((tag) => {
-    research(tag);
-  });
+  for(let i = 0; i < tagIngredients.length; i++){
+    research(tagIngredients[i]);
+  };
+
   // check every appareils tag
   const tagAppareils = filterAppareils;
-  tagAppareils.forEach((tag) => {
-    research(tag);
-  });
+  for(let i = 0; i < tagAppareils.length; i++){
+    research(tagAppareils[i]);
+  };
+
   // check every ustensils tag
   const tagUstensils = filterUstensils;
-  tagUstensils.forEach((tag) => {
-    research(tag);
-  });
+  for(let i = 0; i < tagUstensils.length; i++){
+    research(tagUstensils[i]);
+  };
 
   if (searchInput.value.length === 0 && filterAppareils.length === 0 && filterIngredient.length === 0 && filterUstensils.length === 0) {
     displayRecipes(recipes);
