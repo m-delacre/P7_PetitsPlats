@@ -54,6 +54,9 @@ function research(tag) {
         }
       });
     });
+    let test = fromArray;
+    test.filter(recipe => recipe.name.toLowerCase().includes(tag.toLowerCase()) || recipe.description.toLowerCase().includes(tag.toLowerCase()) || recipe.appliance.toLowerCase() == tag.toLowerCase());
+    console.log(test);
   }
 
   // Show found recipes
