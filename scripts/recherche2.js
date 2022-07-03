@@ -19,6 +19,7 @@ function research(tag) {
   const fromArray = from;
   let i = 0;
   let y = 0;
+  let p = 0;
   foundRecipe = [];
   if (tag.length >= 3) {
     while (i < fromArray.length) {
@@ -48,14 +49,16 @@ function research(tag) {
           foundRecipe.push(fromArray[i]);
         }
       }
+
       // check if ustensiles matches
-      fromArray[i].ustensils.forEach((ustensil) => {
-        if (ustensil.toLowerCase().includes(tag.toLowerCase())) {
+      while(p < fromArray[i].ustensils.length){
+        if (fromArray[i].ustensils[p].toLowerCase().includes(tag.toLowerCase())) {
           if (foundRecipe.indexOf(fromArray[i]) === -1) {
             foundRecipe.push(fromArray[i]);
           }
         }
-      });
+        p++;
+      }
 
       // next recipe
       i += 1;
